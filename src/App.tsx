@@ -76,7 +76,7 @@ const Hero = () => (
     <div className="absolute inset-0 z-0">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900 opacity-30" />
       <img 
-        src="/wenchang-hero-bg.png" 
+        src="wenchang-hero-bg.png" 
         alt="文昌航天发射场"
         className="w-full h-full object-cover opacity-60"
       />
@@ -544,7 +544,7 @@ const SolutionSection = () => (
               
               <div className="transform scale-[1.5] lg:scale-[1.6] origin-center lg:origin-right transition-transform duration-700 hover:scale-[1.55] lg:hover:scale-[1.65]">
                 <IPhoneMockup 
-                  src="/huangxiaoxi-app.png" 
+                  src="huangxiaoxi-app.png" 
                 />
               </div>
 
@@ -686,7 +686,7 @@ const CaseSection = () => (
             
             <div className="transform scale-[1.5] lg:scale-[1.8] origin-center lg:origin-right transition-transform duration-700 hover:rotate-2">
               <IPhoneMockup 
-                src="/huangxiaoxi-app.png" 
+                src="huangxiaoxi-app.png" 
               />
             </div>
             
