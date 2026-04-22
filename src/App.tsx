@@ -591,7 +591,7 @@ const SolutionSection = () => (
           d: "关注“行前、在线选房、离店售后”。核心优势在于掌握甚至通过数据整合保障航天发射期间的观光房源。通过数字化手段提升管理水平，实现管理服务方式革新，降低酒店成本。",
           color: "purple",
           features: ["在线选定观光房", "行前闭环咨询", "降低运营成本"],
-          screenshot: "/酒店智能体.jpg"
+          screenshot: "酒店智能体.jpg"
         },
         { 
           icon: ShoppingBag, 
@@ -599,7 +599,7 @@ const SolutionSection = () => (
           d: "关注“二次消费激活”。整合文商货盘，支持特产直邮。通过NFT数字资产、积分礼品兑换等方式，增强用户粘性，实现流量精准转化，全面落实文昌市政府工作报告关于促消费的要求。",
           color: "emerald",
           features: ["特产直邮中台", "NFT数字资产", "二次消费激活"],
-          screenshot: "/商城.jpg"
+          screenshot: "商城.jpg"
         }
       ].map((item, i) => (
         <Card key={i} className="bg-white border-none shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-500 overflow-hidden group p-0">
