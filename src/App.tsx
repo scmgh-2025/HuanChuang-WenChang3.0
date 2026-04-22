@@ -489,8 +489,7 @@ const SolutionSection = () => (
               Architecture Hub
             </div>
             <h3 className="text-5xl lg:text-6xl font-black mb-8 tracking-tighter leading-[1.1] text-slate-900">
-              “1+N” 体系架构<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">数智运营底座</span>
+              "1+N" 体系架构
             </h3>
             <div className="space-y-10">
               <div className="group">
