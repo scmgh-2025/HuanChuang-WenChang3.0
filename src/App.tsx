@@ -664,10 +664,10 @@ const CaseSection = () => (
           
           <div className="grid grid-cols-2 gap-6">
             {[
-              { label: "累计服务游客", val: "500w+", desc: "全域覆盖主要景区", color: "text-blue-600", bg: "bg-blue-50" },
-              { label: "响应率提升", val: "100%", desc: "实时智能回复建议", color: "text-indigo-600", bg: "bg-indigo-50" },
-              { label: "行政人力节省", val: "30%", desc: "大幅降低运营成本", color: "text-emerald-600", bg: "bg-emerald-50" },
-              { label: "客流预测准度", val: "85%+", desc: "精准引导避开拥堵", color: "text-cyan-600", bg: "bg-cyan-50" }
+              { label: "累计服务游客", val: "500万+", desc: "全域覆盖主要景区", color: "text-blue-600", bg: "bg-blue-50" },
+              { label: "24小时响应率", val: "100%", desc: "实时智能回复建议", color: "text-indigo-600", bg: "bg-indigo-50" },
+              { label: "人力节省", val: "30%", desc: "大幅降低运营成本", color: "text-emerald-600", bg: "bg-emerald-50" },
+              { label: "客流预测准度", val: "85%+", desc: "行业监管效率提升", color: "text-cyan-600", bg: "bg-cyan-50" }
             ].map((stat, i) => (
               <div key={i} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                 <div className="text-base text-slate-400 font-medium mb-2">{stat.label}</div>
@@ -695,7 +695,7 @@ const CaseSection = () => (
                 <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">Success Case</span>
               </div>
               <p className="text-sm font-medium leading-relaxed">
-                实战演示：多彩黄小西智能服务终端，在黄金周期间有效缓解了 40% 的排队压力。
+                实现管理从 “经验驱动” 向 “数据驱动” 转型；同时推动贵州文旅产业形成全域协同发展的数智生态。。
               </p>
             </div>
           </div>
