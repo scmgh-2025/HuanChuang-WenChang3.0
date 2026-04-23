@@ -658,7 +658,7 @@ const CaseSection = () => (
               该项目成功斩获 <span className="text-blue-600 font-bold">2025 文旅数据创新大赛二等奖</span>。通过构建“游客-商户-政府”三位一体的数智生态，深度解决景区排队、差评治理及精准触达难题。
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-600 rounded-xl text-base border border-slate-100">
-              <CheckCircle2 size={16} className="text-green-500" /> 支持小程序/网页轻量部署，灵活嵌入现有生态
+              <CheckCircle2 size={16} className="text-green-500" /> 支持小程序轻量部署，灵活嵌入现有生态
             </div>
           </div>
           
