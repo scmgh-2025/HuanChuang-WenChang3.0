@@ -125,9 +125,9 @@ const BackgroundSection = () => (
               <div className="space-y-4">
                 <ul className="grid grid-cols-1 gap-3">
                   {[
-                    { t: "瑶光观礼平台", d: "可容纳 2000 人，最佳视觉观测位" },
-                    { t: "航天科普中心", d: "46 项互动展品，科普研学基地" },
-                    { t: "航天超算中心", d: "年承载 15 万人次，数字化底座" },
+                    { t: "瑶光观礼平台", d: "可容纳 2000 人，最佳视觉观测位，距商业发射工位仅1.5-2公里" },
+                    { t: "航天科普中心", d: "46 项互动展品，覆盖航天历史、火箭发射、空间科学、未来探索等多维主题" },
+                    { t: "航天观礼中心", d: "官方综合性观礼园区，位于龙楼镇，集观礼、研学、VR体验于一体，可容纳千人，主打团队研学服务" },
                     { t: "陨石博物馆/航天乐园", d: "多元化娱乐与科普深度结合" }
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl group hover:bg-blue-50 transition-colors">
@@ -352,7 +352,7 @@ const ValueSection = () => (
         {/* Header Area */}
         <div className="relative z-10 max-w-4xl mx-auto text-center mb-24">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/10 text-blue-600 rounded-full text-base font-bold tracking-widest uppercase mb-6 border border-blue-600/20">
-            商业逻辑重构 · PROFIT ENGINE
+            商业逻辑重构
           </div>
           <h3 className="text-5xl md:text-6xl font-bold mb-8 tracking-tighter text-slate-900">3. 形成新的盈利增长点</h3>
           <p className="text-slate-500 text-2xl leading-relaxed font-light mx-auto max-w-2xl">针对“发射即旺季，过后即冷清”的潮汐效应，通过AI重构产品体系，将流量红利转化为私域长效收益。</p>
@@ -499,7 +499,7 @@ const SolutionSection = () => (
                 </h4>
                 <p className="text-slate-500 leading-relaxed text-lg">
                   <span className="text-slate-900 font-bold block mb-1">文昌文旅智能体</span>
-                  作为全域流量分发的总出口，通过 LMM（多模态大模型）实时解析游客意图。它既是“超级导游”也是“24小时管家”，实现全链路意图识别目标分层。
+                  作为文昌文旅智能体的总入口，为每一位来文昌的游客打造24小时在线的专属数字分身，从航天观礼、研学旅游、景区游览、酒店入住到餐饮消费，全程智能陪伴，实现“游前规划、游中服务、游后回味”的全链路智慧体验。
                 </p>
               </div>
               <div className="group">
@@ -508,7 +508,7 @@ const SolutionSection = () => (
                   “N”个垂直智能体
                 </h4>
                 <p className="text-slate-500 leading-relaxed text-lg">
-                  针对餐饮、民宿、研学、特产等垂直领域构建专属子模型。采用“即插即用”的解耦设计，专业的事由专业的模型做，再由主智能体统一指挥调度。
+                  针对航天观礼、餐饮、酒店民宿、研学等垂直领域构建专属模型。专业的事由专业的模型做，也可单独部署，也能由主智能体调度。
                 </p>
               </div>
             </div>
@@ -564,9 +564,9 @@ const SolutionSection = () => (
         { 
           icon: Rocket, 
           t: "航天智能体", 
-          d: "关注解决何时发、哪里看、怎么去等痛点问题。提供发射详情提前告知，最佳观礼位置推荐（如瑶光观礼台、淇水湾等），配合高德精准引流，甚至提供AR一键回放功能。",
+          d: "关注解决何时发、哪里看、怎么去等痛点问题。提供发射详情提前告知，最佳观礼位置推荐（如瑶光观礼台、航天观礼中心等），配合高德精准引流，带来最佳观礼体验。",
           color: "blue",
-          features: ["发射动态同步", "最佳观礼位推荐", "AR一键回放"],
+          features: ["发射预报", "观礼位推荐", "发射科普"],
           screenshot: "景区智能体.png"
         },
         { 
@@ -574,31 +574,31 @@ const SolutionSection = () => (
           t: "研学智能体", 
           d: "关注研学产品的精准服务。提供在线研学课预约，科普知识问答。运用AI生成照片、视频、游记等，形成社交激励与成就排行榜。",
           color: "indigo",
-          features: ["在线研学课预约", "AI生成游记", "成就排行榜"],
+          features: ["在线研学课预约", "AI生成照片", "AI生成游记"],
           screenshot: "C端智能体.png"
         },
         { 
           icon: Utensils, 
           t: "餐饮智能体", 
-          d: "关注“餐饮+观礼”模式。作为文昌文化输出的重要一环，提供扫码点餐、老爸茶文化讲解，引导用户购买特产，实现淡旺季错峰消费，形成新的盈利增长点。",
+          d: "关注“餐饮+观礼”模式。作为文昌文化输出的重要一环，提供扫码点餐、餐饮文化讲解，引导用户购买特产，实现淡旺季错峰消费，形成新的盈利增长点。",
           color: "orange",
-          features: ["老爸茶文化讲解", "餐饮+观礼模式", "特产引导购买"],
+          features: ["餐饮文化讲解", "餐饮+观礼模式", "特产引导购买"],
           screenshot: "餐饮智能体.jpg"
         },
         { 
           icon: Hotel, 
           t: "酒店智能体", 
-          d: "关注“行前、在线选房、离店售后”。核心优势在于掌握甚至通过数据整合保障航天发射期间的观光房源。通过数字化手段提升管理水平，实现管理服务方式革新，降低酒店成本。",
+          d: "实现入住全场景高效闭环，包含入住政策智能解答、在线预订选房、客房服务、餐饮出行咨询、停车指引、离店关怀等功能，同时整合本地供应链货盘，为酒店运营降低成本",
           color: "purple",
-          features: ["在线选定观光房", "行前闭环咨询", "降低运营成本"],
+          features: ["24小时在线咨询", "在线工单", "降低运营成本"],
           screenshot: "酒店智能体.jpg"
         },
         { 
           icon: ShoppingBag, 
           t: "文创商城", 
-          d: "关注“二次消费激活”。整合文商货盘，支持特产直邮。通过NFT数字资产、积分礼品兑换等方式，增强用户粘性，实现流量精准转化，全面落实文昌市政府工作报告关于促消费的要求。",
+          d: "关注“二次消费激活”。整合文创商品货盘，支持用户在线购买文创商品，全旅途智能体推送种草，增强用户购买意愿，实现流量精准转化，全面落实文昌市政府工作报告关于促消费的要求。",
           color: "emerald",
-          features: ["特产直邮中台", "NFT数字资产", "二次消费激活"],
+          features: ["文创商品货盘", "推送种草", "二次消费激活"],
           screenshot: "商城.jpg"
         }
       ].map((item, i) => (
