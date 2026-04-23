@@ -120,7 +120,7 @@ const BackgroundSection = () => (
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
             <div className="lg:col-span-2 space-y-6">
               <p className="text-slate-600 leading-relaxed text-2xl">
-                文昌是中国唯一拥有滨海航天发射场的城市，具备低纬度发射优势。"到文昌追火箭"已成为全国爱好者的年度盛事。
+                文昌是中国唯一拥有滨海航天发射场的城市，具备低纬度发射优势。"到文昌追火箭"已成为全国火箭爱好者的年度盛事。
               </p>
               <div className="space-y-4">
                 <ul className="grid grid-cols-1 gap-3">
@@ -692,7 +692,7 @@ const CaseSection = () => (
             <div className="absolute -bottom-10 -left-6 p-6 bg-slate-900 text-white rounded-3xl shadow-2xl max-w-[240px] border border-white/10 hidden md:block animate-pulse">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full" />
-                <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">Success Case</span>
+                <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">成功案例</span>
               </div>
               <p className="text-sm font-medium leading-relaxed">
                 实现管理从 “经验驱动” 向 “数据驱动” 转型；同时推动贵州文旅产业形成全域协同发展的数智生态。。
