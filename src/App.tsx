@@ -26,7 +26,15 @@ import {
   Globe2,
   Map,
   Radio,
-  CreditCard
+  CreditCard,
+  Shield,
+  Store,
+  Filter,
+  EyeOff,
+  Database,
+  Scale,
+  ShieldCheck,
+  ClipboardCheck
 } from 'lucide-react';
 
 // --- Components ---
@@ -40,9 +48,25 @@ const IPhoneMockup = ({ src, className = "" }: { src: string, className?: string
   </div>
 );
 
+const TabletMockup = ({ src, className = "" }: { src: string, className?: string }) => (
+  <div className={`relative border-gray-800 bg-gray-800 border-[8px] rounded-[1.5rem] shadow-2xl overflow-hidden shrink-0 ${className}`}
+       style={{ 
+         width: '568px', 
+         height: '360px',
+         marginLeft: '40px'
+       }}>
+    {/* Screen */}
+    <div className="rounded-[1rem] overflow-hidden w-full h-full bg-slate-100">
+      <img src={src} className="w-full h-full object-cover" alt="Dashboard interface" referrerPolicy="no-referrer" />
+    </div>
+    {/* Camera */}
+    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-600 rounded-full" />
+  </div>
+);
+
 const SectionTitle = ({ children, icon: Icon, subtitle }: { children: React.ReactNode, icon?: any, subtitle?: string }) => (
   <div className="mb-12">
-    <div className="flex items-center gap-3 mb-4">
+    <div className="flex items-start gap-3 mb-4">
       {Icon && <div className="p-2 bg-blue-600 rounded-lg text-white"><Icon size={24} /></div>}
       <h2 className="text-4xl font-bold text-slate-900 tracking-tight">{children}</h2>
     </div>
@@ -108,7 +132,7 @@ const Hero = () => (
 
 const BackgroundSection = () => (
   <section id="background" className="py-24 px-6 max-w-7xl mx-auto">
-    <SectionTitle icon={Globe2}>一、合作背景</SectionTitle>
+    <SectionTitle icon={Globe2}>四、合作背景</SectionTitle>
     
     <div className="space-y-12 mb-12">
       <div className="space-y-8">
@@ -187,26 +211,7 @@ const BackgroundSection = () => (
               </div>
             </div>
             
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:border-indigo-100 transition-colors flex flex-col justify-center gap-6">
-                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center"><Target className="text-indigo-600" size={28}/></div>
-                <div>
-                  <h5 className="text-3xl font-bold text-slate-800 mb-3">2025 政府工作报告</h5>
-                  <p className="text-slate-500 text-lg leading-relaxed">
-                    "只争朝夕发展航天旅游，谋划推进航天主题公园等重大项目落地，加快推动航天科普中心、航天观礼平台等航天旅游项目建设，打造'航天旅游之都'"。
-                  </p>
-                </div>
-              </div>
-              <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:border-indigo-100 transition-colors flex flex-col justify-center gap-6">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center"><Users className="text-blue-600" size={28}/></div>
-                <div>
-                  <h5 className="text-3xl font-bold text-slate-800 mb-3">2026 政府工作报告</h5>
-                  <p className="text-slate-500 text-lg leading-relaxed">
-                    "系统布局航天营地、精品民宿等配套项目，拓展体验消费、情绪消费等服务消费新场景"。
-                  </p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </Card>
       </div>
@@ -281,11 +286,35 @@ const BackgroundSection = () => (
 const ValueSection = () => (
   <section id="values" className="py-24 px-6 bg-slate-50">
     <div className="max-w-7xl mx-auto">
-      <SectionTitle icon={Cpu} subtitle="落实政府规划、革新服务模式、重构商业逻辑。">二、AI智能体赋能核心价值</SectionTitle>
+      <SectionTitle icon={Cpu} subtitle="落实政府规划、革新服务模式、重构商业逻辑。">四、智能体与航天+文旅融合的价值及预期成效</SectionTitle>
       
       {/* 1. 落实文昌市政府工作报告方面 */}
       <div className="mb-24">
+        <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">融合价值</h2>
         <h3 className="text-3xl font-bold text-slate-800 mb-8 border-l-4 border-l-blue-600 pl-4">1. 落实文昌市政府工作报告方面</h3>
+        
+        {/* 政府工作报告引用 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:border-indigo-100 transition-colors flex flex-col justify-center gap-6">
+            <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center"><Target className="text-indigo-600" size={28}/></div>
+            <div>
+              <h5 className="text-2xl font-bold text-slate-800 mb-3">2025 政府工作报告提出</h5>
+              <p className="text-slate-500 text-lg leading-relaxed">
+                "只争朝夕发展航天旅游，谋划推进航天主题公园等重大项目落地，加快推动航天科普中心、航天观礼平台等航天旅游项目建设，打造'航天旅游之都'"。
+              </p>
+            </div>
+          </div>
+          <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:border-indigo-100 transition-colors flex flex-col justify-center gap-6">
+            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center"><Users className="text-blue-600" size={28}/></div>
+            <div>
+              <h5 className="text-2xl font-bold text-slate-800 mb-3">2026 政府工作报告提出</h5>
+              <p className="text-slate-500 text-lg leading-relaxed">
+                "系统布局航天营地、精品民宿等配套项目，拓展体验消费、情绪消费等服务消费新场景"。
+              </p>
+            </div>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { t: "“人工智能+”消费探索", d: "文旅智能体是消费升级的重要抓手，赋能个性化、情境化与沉浸式体验。" },
@@ -442,13 +471,189 @@ const ValueSection = () => (
         </div>
       </div>
 
+      {/* 预期成效 */}
+      <h2 className="text-4xl font-black text-slate-900 mb-10 text-center mt-16">预期成效</h2>
+
+      {/* 一、G/B/C端预期成效 */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold text-slate-800 mb-8 border-l-4 border-l-blue-600 pl-4">一、G/B/C端预期成效</h3>
+        
+        {/* G端政府 */}
+        <div className="mb-10 p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
+          <h4 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold">G</div>
+            （一）G端政府
+          </h4>
+          <ul className="space-y-4 text-slate-600 text-lg leading-relaxed">
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-blue-500 shrink-0 mt-1" />支撑游客人次、旅游收入双增5%目标落地，打造全国航天文旅数智治理标杆文昌市人民政府。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-blue-500 shrink-0 mt-1" />文旅监管与应急效率提升50%+，发射/节假日客流预测准确率<strong className="text-slate-800">≥85%</strong>，大客流保障压力显著下降。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-blue-500 shrink-0 mt-1" />一屏统览全域运行数据，为产业规划、政策制定、营销决策提供精准数据支撑。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-blue-500 shrink-0 mt-1" />强化"航天旅游之都"IP，放大"到文昌追火箭"全国影响力。</li>
+          </ul>
+        </div>
+
+        {/* B端商户 */}
+        <div className="mb-10 p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
+          <h4 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">B</div>
+            （二）B端商户
+          </h4>
+          <ul className="space-y-4 text-slate-600 text-lg leading-relaxed">
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-indigo-500 shrink-0 mt-1" />商户人力成本平均降30%，服务/订单效率提升60%+。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-indigo-500 shrink-0 mt-1" />营收增15%–20%，淡季客流与复购明显改善。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-indigo-500 shrink-0 mt-1" />对接高德亿级流量，实现航天IP流量→本地消费精准转化。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-indigo-500 shrink-0 mt-1" />提供用户画像、客流预测、产品优化等数字化经营工具。</li>
+          </ul>
+        </div>
+
+        {/* C端游客 */}
+        <div className="mb-10 p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
+          <h4 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold">C</div>
+            （三）C端游客
+          </h4>
+          <ul className="space-y-4 text-slate-600 text-lg leading-relaxed">
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-emerald-500 shrink-0 mt-1" />7×24小时服务响应率100%，满意度提升25个百分点，行程规划效率提升80%+。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-emerald-500 shrink-0 mt-1" />千人千面行程与产品推荐，覆盖亲子、研学、情侣、发烧友等全客群。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-emerald-500 shrink-0 mt-1" />吃住行游购娱一入口全覆盖，行前-行中-行后全周期闭环。</li>
+            <li className="flex gap-3"><CheckCircle2 size={20} className="text-emerald-500 shrink-0 mt-1" />从"看火箭"升级为<strong className="text-slate-800">"玩航天"</strong>，沉浸式体验与社交传播更强。</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* 二、航天文旅可视化大屏 */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold text-slate-800 mb-8 border-l-4 border-l-blue-600 pl-4">二、航天文旅可视化大屏（政府驾驶舱）</h3>
+        <div className="p-8 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-xl text-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-blue-400 font-bold mb-2">客流监测</div>
+              <p className="text-slate-300 text-sm leading-relaxed">全域客流、分布、客源画像、景区/住宿接待数据，动态统计与趋势分析。</p>
+            </div>
+            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-blue-400 font-bold mb-2">资源总览</div>
+              <p className="text-slate-300 text-sm leading-relaxed">景区、住宿、餐饮、文创等业态资源，数量统计与区域分布可视化。</p>
+            </div>
+            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-blue-400 font-bold mb-2">产业分析</div>
+              <p className="text-slate-300 text-sm leading-relaxed">旅游营收、人次、消费结构、渠道占比，业态运行数据多维度对比呈现。</p>
+            </div>
+            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-blue-400 font-bold mb-2">交易看板</div>
+              <p className="text-slate-300 text-sm leading-relaxed">OTA/旅行社交易数据、实时订单明细，消费动态全流程追踪。</p>
+            </div>
+            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div className="text-blue-400 font-bold mb-2">决策支撑</div>
+              <p className="text-slate-300 text-sm leading-relaxed">全省旅游运行态势全链路感知，为管理与运营提供数据支撑。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 三、数据来源与可信性 */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold text-slate-800 mb-8 border-l-4 border-l-blue-600 pl-4">三、数据来源与可信性</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+            <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><Shield className="text-blue-500" size={20} />政府授权数据</h4>
+            <p className="text-slate-600 text-sm">发射计划、文旅统计、公共服务、备案信息等官方数据。</p>
+          </div>
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+            <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><Store className="text-indigo-500" size={20} />商户授权数据</h4>
+            <p className="text-slate-600 text-sm">门店、产品、订单、经营数据，书面授权使用。</p>
+          </div>
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+            <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><Users className="text-emerald-500" size={20} />用户授权数据</h4>
+            <p className="text-slate-600 text-sm">严格遵循《个人信息保护法》，授权采集、最小必要。</p>
+          </div>
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+            <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><Globe2 className="text-purple-500" size={20} />生态合规数据</h4>
+            <p className="text-slate-600 text-sm">高德LBS、热力、轨迹等脱敏数据，不涉隐私。</p>
+          </div>
+        </div>
+        <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-xl">
+          <p className="text-blue-800 text-center font-medium">全程可追溯、可核验、可审计，数据真实可信。</p>
+        </div>
+      </div>
+
+      {/* 四、数据洗选与分析能力 */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold text-slate-800 mb-8 border-l-4 border-l-blue-600 pl-4">四、数据洗选与分析能力</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm text-center">
+            <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Filter className="text-blue-600" size={28} />
+            </div>
+            <h4 className="font-bold text-slate-800 mb-2">数据清洗</h4>
+            <p className="text-slate-600 text-sm">去重、纠错、补全、标准化，确保准确、完整、一致。</p>
+          </div>
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm text-center">
+            <div className="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <EyeOff className="text-indigo-600" size={28} />
+            </div>
+            <h4 className="font-bold text-slate-800 mb-2">数据脱敏</h4>
+            <p className="text-slate-600 text-sm">隐私与机密信息不可逆脱敏，可用不可见。</p>
+          </div>
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm text-center">
+            <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Database className="text-purple-600" size={28} />
+            </div>
+            <h4 className="font-bold text-slate-800 mb-2">分级存储</h4>
+            <p className="text-slate-600 text-sm">按类型与安全等级分类，全生命周期可管可控。</p>
+          </div>
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm text-center">
+            <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <BarChart3 className="text-emerald-600" size={28} />
+            </div>
+            <h4 className="font-bold text-slate-800 mb-2">核心分析</h4>
+            <p className="text-slate-600 text-sm">游客画像、客流规律、消费联动、运营效果，支撑决策与优化。</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 五、数据安全保障 */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold text-slate-800 mb-8 border-l-4 border-l-blue-600 pl-4">五、数据安全保障</h3>
+        <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
+          <div className="space-y-6">
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                <Scale className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-slate-800 mb-1">合规遵循</h4>
+                <p className="text-slate-600">《网络安全法》《数据安全法》《个人信息保护法》及自贸港规定。</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0">
+                <ShieldCheck className="text-indigo-600" size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-slate-800 mb-1">三重保障</h4>
+                <p className="text-slate-600">制度+技术+权限：加密存储传输、防火墙、入侵检测、容灾备份、最小权限访问。</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center shrink-0">
+                <ClipboardCheck className="text-emerald-600" size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-slate-800 mb-1">审计与检测</h4>
+                <p className="text-slate-600">全流程留痕审计，定期安全检测，确保数据安全、合规、可控。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 );
 
 const SolutionSection = () => (
   <section id="solution" className="py-24 px-6 max-w-7xl mx-auto">
-    <SectionTitle icon={LayoutGrid} subtitle="依托华创云信技术与阿里生态，构建“1+N”智能体落地体系。">三、AI智能体解决方案与落地路径</SectionTitle>
+    <SectionTitle icon={LayoutGrid} subtitle="依托华创云信技术与阿里生态，构建“1+N”智能体落地体系。">三、智能体落地文昌的航天文旅特色功能融合</SectionTitle>
     
     <div className="space-y-8 mb-16">
       <div className="p-10 bg-blue-600 rounded-[2.5rem] text-white shadow-xl shadow-blue-100 relative overflow-hidden">
@@ -566,7 +771,7 @@ const SolutionSection = () => (
           t: "航天智能体", 
           d: "关注解决何时发、哪里看、怎么去等痛点问题。提供发射详情提前告知，最佳观礼位置推荐（如瑶光观礼台、航天观礼中心等），配合高德精准引流，带来最佳观礼体验。",
           color: "blue",
-          features: ["发射预报", "观礼位推荐", "发射科普"],
+          features: ["发射智能提醒", "最佳观礼位推荐", "门票智能推荐", "发射直播/回放", "一键导航", "语音讲解", "LBS触发推送", "余票预警", "即时优惠推送"],
           screenshot: "景区智能体.png"
         },
         { 
@@ -574,7 +779,7 @@ const SolutionSection = () => (
           t: "研学智能体", 
           d: "关注研学产品的精准服务。提供在线研学课预约，科普知识问答。运用AI生成照片、视频、游记等，形成社交激励与成就排行榜。",
           color: "indigo",
-          features: ["在线研学课预约", "AI生成照片", "AI生成游记"],
+          features: ["知识问答", "研学课程预约", "研学商品购买", "AI生成航天员照片", "AI生成电子相册", "AI生成游记", "「小小航天员」认证", "研学排行榜", "月度激励"],
           screenshot: "C端智能体.png"
         },
         { 
@@ -582,7 +787,7 @@ const SolutionSection = () => (
           t: "餐饮智能体", 
           d: "关注“餐饮+观礼”模式。作为文昌文化输出的重要一环，提供扫码点餐、餐饮文化讲解，引导用户购买特产，实现淡旺季错峰消费，形成新的盈利增长点。",
           color: "orange",
-          features: ["餐饮文化讲解", "餐饮+观礼模式", "特产引导购买"],
+          features: ["门店信息查询", "在线订座", "智能点餐", "开票服务", "餐饮文化讲解", "餐饮优惠"],
           screenshot: "餐饮智能体.jpg"
         },
         { 
@@ -590,7 +795,7 @@ const SolutionSection = () => (
           t: "酒店智能体", 
           d: "实现入住全场景高效闭环，包含入住政策智能解答、在线预订选房、客房服务、餐饮出行咨询、停车指引、离店关怀等功能，同时整合本地供应链货盘，为酒店运营降低成本",
           color: "purple",
-          features: ["24小时在线咨询", "在线工单", "降低运营成本"],
+          features: ["入住政策解答", "在线预订选房", "客房服务", "餐饮出行咨询", "停车指引", "离店关怀", "本地货盘接入"],
           screenshot: "酒店智能体.jpg"
         },
         { 
@@ -598,7 +803,7 @@ const SolutionSection = () => (
           t: "文创商城", 
           d: "关注“二次消费激活”。整合文创商品货盘，支持用户在线购买文创商品，全旅途智能体推送种草，增强用户购买意愿，实现流量精准转化，全面落实文昌市政府工作报告关于促消费的要求。",
           color: "emerald",
-          features: ["文创商品货盘", "推送种草", "二次消费激活"],
+          features: ["本地特产", "数字藏品", "研学周边", "统一支付", "积分通兑"],
           screenshot: "商城.jpg"
         }
       ].map((item, i) => (
@@ -639,148 +844,254 @@ const SolutionSection = () => (
   </section>
 );
 
-const CaseSection = () => (
-  <section id="case" className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+const AgentSystemSection = () => (
+  <section id="agents" className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <div className="max-w-7xl mx-auto">
+      <SectionTitle icon={Cpu} subtitle="覆盖景区、酒店、餐饮、个人服务等多领域智能解决方案。">华创云信智能体体系</SectionTitle>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {[
+          {
+            t: "景区智能体",
+            icon: MapPin,
+            features: ["智能导览与讲解", "票务分时预约", "客流预警引导"],
+            screenshot: "景区智能体.png"
+          },
+          {
+            t: "酒店智能体",
+            icon: Hotel,
+            features: ["入住咨询与房型介绍", "智能推荐与周边服务", "客户关怀与满意度调查"],
+            screenshot: "酒店智能体.jpg"
+          },
+          {
+            t: "餐饮智能体",
+            icon: Utensils,
+            features: ["菜单推荐与口味偏好", "排队预约与在线取号", "优惠推送与食材溯源"],
+            screenshot: "餐饮智能体.jpg"
+          },
+          {
+            t: "个人智能体",
+            icon: Users,
+            features: ["AI帮讲故事", "24h在线接待", "咨询秒回撮合"],
+            screenshot: "个人智能体.png"
+          },
+          {
+            t: "诊所/药店智能体",
+            icon: Radio,
+            features: ["预约挂号与候诊提醒", "健康咨询与用药指导", "院内导航与位置指引"],
+            screenshot: "2.png",
+            isHorizontal: true
+          },
+          {
+            t: "B端工作台",
+            icon: LayoutGrid,
+            features: ["经营数据看板", "客户画像管理", "营销工具配置"],
+            screenshot: "3.png"
+          }
+        ].map((agent, idx) => (
+          <div key={idx} className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 p-10 flex flex-col items-center text-center transition-all hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
+              <agent.icon size={32} />
+            </div>
+            <h4 className="text-2xl font-bold text-slate-800 mb-8">{agent.t}</h4>
+            <ul className="space-y-4 mb-12 text-left w-full max-w-[240px] mx-auto flex-1">
+              {agent.features.map((f, i) => (
+                <li key={i} className="flex items-center gap-3 text-slate-500 font-medium text-base">
+                  <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-200 transition-colors">
+                    <CheckCircle2 size={12} className="text-blue-600" />
+                  </div>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 pb-4 w-full flex justify-center">
+              {agent.isHorizontal ? (
+                <div className="relative border-gray-900 bg-gray-900 border-[6px] rounded-[1.5rem] h-[180px] w-[300px] shadow-2xl overflow-hidden shrink-0 hover:scale-[1.1] transition-transform duration-500 -translate-y-8">
+                  <div className="rounded-[1.1rem] overflow-hidden w-full h-full bg-white">
+                    <img src={agent.screenshot} className="w-full h-full object-cover object-top" alt="App interface" referrerPolicy="no-referrer" />
+                  </div>
+                </div>
+              ) : (
+                <IPhoneMockup src={agent.screenshot} className="scale-[1.15] origin-bottom hover:scale-[1.3] transition-transform duration-500" />
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const CaseSection = () => {
+  const [activeRole, setActiveRole] = useState<'c' | 'b' | 'g'>('c');
+
+  const roleData = {
+    c: {
+      title: 'C端（游客）',
+      icon: Users,
+      mockupType: 'phone' as const,
+      image: 'huangxiaoxi-app.png',
+      stats: [
+        { label: '累计服务游客', val: '500万+', desc: '覆盖贵州全省9市州多类文旅消费场景', color: 'text-blue-600' },
+        { label: '24小时响应率', val: '100%', desc: '服务全天候保障', color: 'text-blue-600' },
+        { label: '满意度提升', val: '25%', desc: '游客体验显著优化', color: 'text-blue-600' }
+      ],
+      achievements: [
+        '覆盖贵州全省 9 市州多类文旅消费场景，累计服务游客超 500 万人次',
+        '24 小时在线服务响应率 100%，服务全天候保障',
+        '游客满意度提升 25 个百分点，游客体验显著优化'
+      ]
+    },
+    b: {
+      title: 'B端（商户/文旅经营主体）',
+      icon: ShoppingBag,
+      mockupType: 'phone' as const,
+      image: 'huangxiaoxi-merchant-workspace.png',
+      stats: [
+        { label: '接入商户规模', val: '300+', desc: '百余家酒店、30余家景区、200余家商户', color: 'text-blue-600' },
+        { label: '人力成本降低', val: '30%', desc: '降本效果突出', color: 'text-blue-600' },
+        { label: '收益提升', val: '15-20%', desc: '复购率、整体运营效率提升', color: 'text-blue-600' }
+      ],
+      achievements: [
+        '规模化接入百余家酒店、30 余家核心景区、200 余家餐饮及特产商户',
+        '合作商户人力成本平均降低 30%，降本效果突出',
+        '商户额外收益提升 15%-20%，复购率、整体运营效率提升'
+      ]
+    },
+    g: {
+      title: 'G端（文旅主管部门/政府）',
+      icon: Award,
+      mockupType: 'tablet' as const,
+      image: 'huangxiaoxi-gov-dashboard.png',
+      stats: [
+        { label: '客流预测准确率', val: '85%+', desc: '行业监管效率提升50%', color: 'text-blue-600' },
+        { label: '管理转型', val: '数据驱动', desc: '从经验驱动向数据驱动转型', color: 'text-blue-600' },
+        { label: '数智生态', val: '全域协同', desc: '落实人工智能+消费探索', color: 'text-blue-600' }
+      ],
+      achievements: [
+        '文旅客流预测准确率达 85% 以上，行业监管效率提升 50%',
+        '实现文旅管理从 "经验驱动" 向 "数据驱动" 转型',
+        '助力搭建全域协同发展的数智生态，落实"人工智能+"消费探索，赋能区域文旅高质量发展'
+      ]
+    }
+  };
+
+  const currentRole = roleData[activeRole];
+  const RoleIcon = currentRole.icon;
+
+  return (
+    <section id="case" className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
     <div className="max-w-7xl mx-auto relative">
       <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-400/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
       
-      <SectionTitle icon={Award} subtitle="“多彩黄小西”：华创云信文旅智能体的成熟实践。">四、案例参考：贵州成功经验</SectionTitle>
+      <SectionTitle icon={Award} subtitle="华创云信文旅智能体的成熟实践。">二、"多彩黄小西"-华创云信的贵州实践</SectionTitle>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        <div className="lg:col-span-7 space-y-10">
-          <div className="p-10 bg-white rounded-[3rem] shadow-xl shadow-blue-100/50 border border-slate-100 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110" />
-            <h4 className="text-3xl font-black mb-6 text-slate-900 flex items-center gap-3">
-              <span className="w-2 h-10 bg-blue-600 rounded-full" />
-              “多彩黄小西”产品概览
-            </h4>
-            <p className="text-slate-500 leading-relaxed text-xl font-light mb-8">
-              该项目成功斩获 <span className="text-blue-600 font-bold">2025 文旅数据创新大赛二等奖</span>。通过构建“游客-商户-政府”三位一体的数智生态，深度解决景区排队、差评治理及精准触达难题。
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-600 rounded-xl text-base border border-slate-100">
-              <CheckCircle2 size={16} className="text-green-500" /> 支持小程序轻量部署，灵活嵌入现有生态
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-6">
+        <div className="lg:col-span-7 space-y-8">
+          {/* Role Switcher Buttons */}
+          <div className="flex gap-2 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
             {[
-              { label: "累计服务游客", val: "500万+", desc: "全域覆盖主要景区", color: "text-blue-600", bg: "bg-blue-50" },
-              { label: "24小时响应率", val: "100%", desc: "实时智能回复建议", color: "text-indigo-600", bg: "bg-indigo-50" },
-              { label: "人力节省", val: "30%", desc: "大幅降低运营成本", color: "text-emerald-600", bg: "bg-emerald-50" },
-              { label: "客流预测准度", val: "85%+", desc: "行业监管效率提升", color: "text-cyan-600", bg: "bg-cyan-50" }
-            ].map((stat, i) => (
-              <div key={i} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                <div className="text-base text-slate-400 font-medium mb-2">{stat.label}</div>
-                <div className={`text-5xl font-black ${stat.color} mb-1`}>{stat.val}</div>
-                <div className="text-sm text-slate-500">{stat.desc}</div>
+              { key: 'c' as const, label: 'C端', icon: Users },
+              { key: 'b' as const, label: 'B端', icon: ShoppingBag },
+              { key: 'g' as const, label: 'G端', icon: Award }
+            ].map((role) => {
+              const Icon = role.icon;
+              const isActive = activeRole === role.key;
+              return (
+                <button
+                  key={role.key}
+                  onClick={() => setActiveRole(role.key)}
+                  className={`flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold transition-all ${
+                    isActive
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
+                      : 'text-slate-600 hover:bg-slate-100'
+                  }`}
+                >
+                  <Icon size={18} />
+                  <span>{role.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Role Title */}
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center">
+              <RoleIcon size={28} className="text-blue-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900">{currentRole.title}</h3>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-3 gap-4">
+            {currentRole.stats.map((stat, i) => (
+              <div key={i} className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                <div className="text-sm text-slate-400 font-medium mb-2">{stat.label}</div>
+                <div className={`text-3xl font-black ${stat.color} mb-1`}>{stat.val}</div>
+                <div className="text-xs text-slate-500 leading-relaxed">{stat.desc}</div>
               </div>
             ))}
           </div>
-        </div>
+
+          {/* Core Achievements */}
+          <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
+            <h4 className="text-lg font-bold text-slate-900 mb-6">核心成效</h4>
+            <ul className="space-y-4">
+              {currentRole.achievements.map((achievement, i) => (
+                <li key={i} className="flex items-start gap-3 text-slate-600">
+                  <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 size={12} className="text-blue-600" />
+                  </div>
+                  <span className="leading-relaxed">{achievement}</span>
+                </li>
+              ))}
+            </ul>
+          </div></div>
         
+        {/* Right Mockup */}
         <div className="lg:col-span-5 relative flex justify-center lg:justify-end py-10 lg:py-0">
           <div className="relative">
             {/* Glow background */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-blue-100/40 rounded-full blur-[100px] -z-10" />
             
-            <div className="transform scale-[1.5] lg:scale-[1.8] origin-center lg:origin-right transition-transform duration-700 hover:rotate-2">
-              <IPhoneMockup 
-                src="huangxiaoxi-app.png" 
-              />
+            {/* Dynamic Mockup based on role */}
+            <div className={`origin-center lg:origin-right ${
+              currentRole.mockupType === 'tablet' 
+                ? 'scale-[1.0] lg:scale-[1.1] translate-x-32' 
+                : 'scale-[1.5] lg:scale-[1.8] hover:rotate-2 transition-all duration-700'
+            }`}>
+              {currentRole.mockupType === 'tablet' ? (
+                <TabletMockup src={currentRole.image} />
+              ) : (
+                <IPhoneMockup src={currentRole.image} />
+              )}
             </div>
             
-            <div className="absolute -bottom-10 -left-6 p-6 bg-slate-900 text-white rounded-3xl shadow-2xl max-w-[240px] border border-white/10 hidden md:block animate-pulse">
+            {/* Description Card */}
+            <div className={`absolute p-6 bg-slate-900 text-white rounded-3xl shadow-2xl max-w-[240px] border border-white/10 hidden md:block animate-pulse ${
+              currentRole.mockupType === 'tablet'
+                ? 'top-1/2 -translate-y-1/2 -right-48'
+                : '-bottom-10 -left-6'
+            }`}>
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full" />
                 <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">成功案例</span>
               </div>
               <p className="text-sm font-medium leading-relaxed">
-                实现管理从 “经验驱动” 向 “数据驱动” 转型；同时推动贵州文旅产业形成全域协同发展的数智生态。。
+                {activeRole === 'g' 
+                  ? '实现管理从 "经验驱动" 向 "数据驱动" 转型；同时推动贵州文旅产业形成全域协同发展的数智生态。' 
+                  : activeRole === 'b'
+                  ? '商户通过智能体实现降本增效，提升服务质量和运营效率。'
+                  : '游客通过智能体享受便捷服务，体验显著优化。'}
               </p>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="mt-32">
-        <div className="text-center mb-20 px-6">
-          <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">华创云信各类商户智能体</h3>
-          <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          {[
-            {
-              t: "景区智能体",
-              icon: MapPin,
-              features: ["智能导览与讲解", "票务分时预约", "客流预警引导"],
-              screenshot: "景区智能体.png"
-            },
-            {
-              t: "酒店智能体",
-              icon: Hotel,
-              features: ["入住咨询与房型介绍", "智能推荐与周边服务", "客户关怀与满意度调查"],
-              screenshot: "酒店智能体.jpg"
-            },
-            {
-              t: "餐饮智能体",
-              icon: Utensils,
-              features: ["菜单推荐与口味偏好", "排队预约与在线取号", "优惠推送与食材溯源"],
-              screenshot: "餐饮智能体.jpg"
-            },
-            {
-              t: "个人智能体",
-              icon: Users,
-              features: ["AI帮讲故事", "24h在线接待", "咨询秒回撮合"],
-              screenshot: "个人智能体.png"
-            },
-            {
-              t: "诊所/药店智能体",
-              icon: Radio,
-              features: ["预约挂号与候诊提醒", "健康咨询与用药指导", "院内导航与位置指引"],
-              screenshot: "2.png",
-              isHorizontal: true
-            },
-            {
-              t: "B端工作台",
-              icon: LayoutGrid,
-              features: ["经营数据看板", "客户画像管理", "营销工具配置"],
-              screenshot: "3.png"
-            }
-          ].map((agent, idx) => (
-            <div key={idx} className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 p-10 flex flex-col items-center text-center transition-all hover:scale-[1.03] hover:shadow-2xl group">
-              <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
-                <agent.icon size={32} />
-              </div>
-              <h4 className="text-2xl font-bold text-slate-800 mb-8">{agent.t}</h4>
-              <ul className="space-y-4 mb-12 text-left w-full max-w-[240px] mx-auto flex-1">
-                {agent.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-500 font-medium text-base">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-200 transition-colors">
-                      <CheckCircle2 size={12} className="text-blue-600" />
-                    </div>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 pb-4 w-full flex justify-center">
-                {agent.isHorizontal ? (
-                  <div className="relative border-gray-900 bg-gray-900 border-[6px] rounded-[1.5rem] h-[180px] w-[300px] shadow-2xl overflow-hidden shrink-0 hover:scale-[1.1] transition-transform duration-500 -translate-y-8">
-                    <div className="rounded-[1.1rem] overflow-hidden w-full h-full bg-white">
-                      <img src={agent.screenshot} className="w-full h-full object-cover object-top" alt="App interface" referrerPolicy="no-referrer" />
-                    </div>
-                  </div>
-                ) : (
-                  <IPhoneMockup src={agent.screenshot} className="scale-[1.15] origin-bottom hover:scale-[1.3] transition-transform duration-500" />
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   </section>
 );
+};
 
 const Footer = () => (
   <footer className="py-12 px-6 border-t border-slate-100 text-center text-slate-400 text-sm">
@@ -802,10 +1113,10 @@ const Footer = () => (
 const Navigation = ({ activeSection }: { activeSection: string }) => {
   const links = [
     { id: 'hero', label: '首页', icon: Rocket },
-    { id: 'background', label: '背景', icon: MapPin },
-    { id: 'values', label: '价值', icon: Cpu },
-    { id: 'solution', label: '方案', icon: LayoutGrid },
-    { id: 'case', label: '案例', icon: Award },
+    { id: 'agents', label: '智能体功能', icon: Cpu },
+    { id: 'case', label: '落地案例', icon: Award },
+    { id: 'solution', label: '落地方案', icon: LayoutGrid },
+    { id: 'values', label: '价值与预期', icon: TrendingUp },
   ];
 
   return (
@@ -838,7 +1149,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'background', 'values', 'solution', 'case'];
+      const sections = ['hero', 'agents', 'case', 'solution', 'values'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -862,13 +1173,14 @@ export default function App() {
       
       <main className="relative">
         <Hero />
-        <BackgroundSection />
-        <ValueSection />
-        <SolutionSection />
+        <AgentSystemSection />
         <CaseSection />
+        <SolutionSection />
+        <ValueSection />
       </main>
 
       <Footer />
     </div>
   );
 }
+
